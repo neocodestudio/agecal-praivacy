@@ -1,12 +1,627 @@
-<html>
-  <head>
-    age calculator praivacy page
-  </head>
-  <body>
-    <p>data save in local store. do not sync in cloud.</p>
-    <p>we do not collect, share and upload user data.</p>
-    <p>use data fully save</p>
-    <p>inside app showing <b>admob ad</b></p>
-    <p>app is now test mode</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Age Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2d3561;
+            --primary-light: #4a5a8f;
+            --accent: #e63946;
+            --accent-light: #f4a6ab;
+            --bg-cream: #faf9f6;
+            --bg-white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-medium: #4a4a4a;
+            --text-light: #6a6a6a;
+            --border: #e0dfd8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 300;
+            color: var(--text-dark);
+            background: var(--bg-cream);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Decorative background elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -30%;
+            left: -15%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+            opacity: 0.1;
+            z-index: 0;
+            pointer-events: none;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(5deg); }
+            66% { transform: translate(-20px, 20px) rotate(-5deg); }
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 30-30 30L0 30z' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .app-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem;
+            font-weight: normal;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .app-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            max-width: 900px;
+            margin: -3rem auto 4rem;
+            padding: 0 2rem;
+            z-index: 1;
+        }
+
+        /* Card */
+        .policy-card {
+            background: var(--bg-white);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            padding: 3rem;
+            border: 1px solid var(--border);
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'DM Serif Display', serif;
+            font-weight: normal;
+            color: var(--primary);
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .last-updated {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 70%;
+            background: linear-gradient(to bottom, var(--accent), var(--accent-light));
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: var(--text-medium);
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+            color: var(--text-medium);
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        li::marker {
+            color: var(--accent);
+        }
+
+        /* Important Box */
+        .important-box {
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.05) 0%, rgba(230, 57, 70, 0.02) 100%);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.1); }
+            50% { box-shadow: 0 0 0 10px rgba(230, 57, 70, 0); }
+        }
+
+        .important-box h3 {
+            margin-top: 0;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(45, 53, 97, 0.2);
+        }
+
+        .contact-section h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .contact-section p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1rem;
+        }
+
+        .contact-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            background: var(--accent);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
+            background: #d62936;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 400;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .emoji {
+            font-size: 1.5rem;
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .app-title {
+                font-size: 2rem;
+            }
+
+            .policy-card {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            header {
+                padding: 3rem 1rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection styling */
+        ::selection {
+            background: var(--accent-light);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="app-title">Age Calculator</h1>
+            <p class="app-subtitle">Your Complete Age & Birthday Companion</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="policy-card">
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last Updated: February 15, 2026</p>
+
+            <p>Welcome to Age Calculator! We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we handle information when you use our Age Calculator mobile application.</p>
+
+            <div class="important-box">
+                <h3>🔒 Your Privacy Matters</h3>
+                <p><strong>We do NOT collect, store, or transmit any personal information to our servers.</strong> All your data stays on your device.</p>
+            </div>
+
+            <h2>1. Information We Collect</h2>
+            
+            <h3>1.1 Personal Information</h3>
+            <p>Age Calculator does NOT collect any personal identifiable information (PII). Specifically, we do not collect:</p>
+            <ul>
+                <li>Your name, email address, or phone number</li>
+                <li>Precise location data</li>
+                <li>Contacts or address book information</li>
+                <li>Photos, videos, or media files</li>
+                <li>Financial or payment information</li>
+                <li>Health information</li>
+            </ul>
+
+            <h3>1.2 Data You Enter</h3>
+            <p>When you use Age Calculator, you may enter:</p>
+            <ul>
+                <li><strong>Birth dates:</strong> Dates you calculate ages for</li>
+                <li><strong>Names:</strong> Optional names you assign to saved birthdays</li>
+                <li><strong>Theme preferences:</strong> Your choice of light or dark mode</li>
+            </ul>
+            <p><strong>Important:</strong> All this data is stored ONLY on your device. We never send this information to our servers or any third party.</p>
+
+            <h2>2. How We Use Your Information</h2>
+            
+            <h3>2.1 Local Storage</h3>
+            <p>All information you enter in Age Calculator is stored locally on your device using Android's secure storage system (SharedPreferences). This means:</p>
+            <ul>
+                <li>Your data never leaves your device</li>
+                <li>No internet connection is required to save or access your data</li>
+                <li>Your information is sandboxed and protected by Android's security</li>
+                <li>Other apps cannot access your Age Calculator data</li>
+            </ul>
+
+            <h3>2.2 Data Processing</h3>
+            <p>We use the data you enter solely to:</p>
+            <ul>
+                <li>Calculate ages and date differences</li>
+                <li>Display next birthday countdowns</li>
+                <li>Determine zodiac signs</li>
+                <li>Store your saved birthdays for quick access</li>
+                <li>Remember your theme preference</li>
+            </ul>
+
+            <h2>3. Third-Party Services</h2>
+            
+            <h3>3.1 Google AdMob</h3>
+            <p>Age Calculator uses <strong>Google AdMob</strong> to display advertisements that help keep the app free. AdMob may collect and process certain information including:</p>
+            <ul>
+                <li><strong>Device Information:</strong> Device model, operating system version, unique device identifiers</li>
+                <li><strong>Usage Data:</strong> App usage statistics, ad interactions</li>
+                <li><strong>Approximate Location:</strong> Country or region-level location (not precise GPS location)</li>
+                <li><strong>Ad-related Data:</strong> Information about ads you view and interact with</li>
+            </ul>
+
+            <p>AdMob uses this information to:</p>
+            <ul>
+                <li>Serve relevant advertisements</li>
+                <li>Measure ad performance</li>
+                <li>Prevent fraud and abuse</li>
+                <li>Improve advertising services</li>
+            </ul>
+
+            <p>For detailed information about how Google handles your data, please review:</p>
+            <ul>
+                <li><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+                <li><a href="https://support.google.com/admob/answer/6128543" target="_blank">Google AdMob Privacy Information</a></li>
+            </ul>
+
+            <h3>3.2 Ad Personalization</h3>
+            <p>You have control over ad personalization:</p>
+            <ul>
+                <li>Visit your device's ad settings to opt out of personalized ads</li>
+                <li>For Android: Settings → Google → Ads → Opt out of Ads Personalization</li>
+                <li>Learn more at <a href="https://www.google.com/settings/ads" target="_blank">Google Ads Settings</a></li>
+            </ul>
+
+            <h2>4. Data Security</h2>
+            
+            <p>We take the security of your data seriously:</p>
+            <ul>
+                <li><strong>Local Encryption:</strong> Your data is stored using Android's secure storage mechanisms, which are encrypted on devices running Android 6.0 and later</li>
+                <li><strong>No Cloud Storage:</strong> We don't store your data on remote servers, eliminating the risk of server breaches</li>
+                <li><strong>App Sandboxing:</strong> Android's sandboxing prevents other apps from accessing your Age Calculator data</li>
+                <li><strong>Secure Connections:</strong> All network communication (for ads) uses HTTPS encryption</li>
+            </ul>
+
+            <h2>5. Data Retention and Deletion</h2>
+            
+            <h3>5.1 How Long We Keep Your Data</h3>
+            <p>Since all data is stored locally on your device:</p>
+            <ul>
+                <li>Your data persists as long as the app is installed</li>
+                <li>We have no access to or copies of your data</li>
+                <li>We cannot recover deleted data</li>
+            </ul>
+
+            <h3>5.2 How to Delete Your Data</h3>
+            <p>You have complete control over your data:</p>
+            <ul>
+                <li><strong>Delete Individual Birthdays:</strong> Swipe or tap the delete button on any saved birthday</li>
+                <li><strong>Delete All Data:</strong> Clear app data in Android Settings → Apps → Age Calculator → Storage → Clear Data</li>
+                <li><strong>Complete Removal:</strong> Uninstall the app to permanently delete all data</li>
+            </ul>
+
+            <h2>6. Children's Privacy (COPPA Compliance)</h2>
+            
+            <p>Age Calculator is not directed at children under 13 years of age. We do not knowingly collect personal information from children under 13.</p>
+            
+            <p>If you are a parent or guardian and believe your child has provided us with personal information, please contact us. We will promptly delete such information.</p>
+
+            <h2>7. International Data Transfers</h2>
+            
+            <p>Since we do not collect or store your personal data on our servers, there are no international data transfers of your personal information.</p>
+            
+            <p>However, Google AdMob may transfer data internationally as part of their advertising services. Please refer to <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a> for information about their data practices.</p>
+
+            <h2>8. Your Rights</h2>
+            
+            <p>Depending on your location, you may have certain rights regarding your data:</p>
+            <ul>
+                <li><strong>Right to Access:</strong> Since all data is stored locally on your device, you have full access to it within the app</li>
+                <li><strong>Right to Delete:</strong> You can delete any or all data at any time through the app or Android settings</li>
+                <li><strong>Right to Portability:</strong> You can manually export your data by viewing it in the app</li>
+                <li><strong>Right to Opt-Out:</strong> You can opt out of personalized ads through your device settings</li>
+            </ul>
+
+            <h2>9. California Privacy Rights (CCPA)</h2>
+            
+            <p>If you are a California resident, you have specific rights under the California Consumer Privacy Act (CCPA):</p>
+            <ul>
+                <li>We do not sell your personal information</li>
+                <li>We do not collect personal information beyond what AdMob collects</li>
+                <li>You can opt out of AdMob's data collection through your device settings</li>
+            </ul>
+
+            <h2>10. European Privacy Rights (GDPR)</h2>
+            
+            <p>If you are in the European Economic Area (EEA), you have rights under the General Data Protection Regulation (GDPR):</p>
+            <ul>
+                <li><strong>Legal Basis:</strong> We process data based on your consent (for ads) and legitimate interests (app functionality)</li>
+                <li><strong>Data Controller:</strong> Age Calculator App is the data controller for locally stored data; Google is the controller for AdMob data</li>
+                <li><strong>Consent:</strong> You provide consent for ad personalization when you install and use the app</li>
+                <li><strong>Withdrawal:</strong> You can withdraw consent by adjusting ad settings or uninstalling the app</li>
+            </ul>
+
+            <h2>11. Internet Connection Requirement</h2>
+            
+            <p>Age Calculator requires an active internet connection to function. This requirement is solely for:</p>
+            <ul>
+                <li>Loading advertisements (our revenue source)</li>
+                <li>Ensuring ads display properly</li>
+            </ul>
+            
+            <p>Your birthday data and calculations do not require internet and are processed entirely on your device.</p>
+
+            <h2>12. Changes to This Privacy Policy</h2>
+            
+            <p>We may update this Privacy Policy from time to time to reflect:</p>
+            <ul>
+                <li>Changes in our practices</li>
+                <li>Changes in applicable laws</li>
+                <li>Improvements to our app</li>
+                <li>User feedback</li>
+            </ul>
+
+            <p>When we make changes:</p>
+            <ul>
+                <li>We will update the "Last Updated" date at the top of this policy</li>
+                <li>Significant changes will be communicated through the app or via app store updates</li>
+                <li>Continued use of the app after changes constitutes acceptance of the updated policy</li>
+            </ul>
+
+            <p>We encourage you to review this Privacy Policy periodically.</p>
+
+            <h2>13. Third-Party Links</h2>
+            
+            <p>Advertisements displayed in Age Calculator may contain links to third-party websites or services. We are not responsible for:</p>
+            <ul>
+                <li>The privacy practices of third-party websites</li>
+                <li>Content on third-party sites</li>
+                <li>Data collection by advertisers</li>
+            </ul>
+            
+            <p>We recommend reviewing the privacy policies of any third-party sites you visit.</p>
+
+            <h2>14. Analytics and Crash Reporting</h2>
+            
+            <p>We may use analytics and crash reporting services to improve app performance and user experience. These services collect:</p>
+            <ul>
+                <li>Anonymous usage statistics</li>
+                <li>Crash logs and error reports</li>
+                <li>Device performance data</li>
+            </ul>
+            
+            <p>This data is anonymized and cannot be used to identify you personally.</p>
+
+            <h2>15. Do Not Track Signals</h2>
+            
+            <p>Our app does not respond to "Do Not Track" (DNT) signals because:</p>
+            <ul>
+                <li>We do not track your browsing activities</li>
+                <li>Ad tracking is controlled by AdMob, not by us</li>
+                <li>You can control ad tracking through your device settings</li>
+            </ul>
+
+            <h2>16. Consent</h2>
+            
+            <p>By downloading, installing, and using Age Calculator, you consent to:</p>
+            <ul>
+                <li>This Privacy Policy</li>
+                <li>Our Terms of Service (if applicable)</li>
+                <li>Google's privacy practices regarding AdMob</li>
+                <li>The collection and use of data as described in this policy</li>
+            </ul>
+
+            <div class="contact-section">
+                <h3>📧 Questions or Concerns?</h3>
+                <p>If you have any questions about this Privacy Policy or how we handle your data, please don't hesitate to contact us:</p>
+                <a href="mailto:support@agecalculator.app" class="contact-link">Contact Us</a>
+            </div>
+
+            <h2>17. Disclaimer</h2>
+            
+            <p>Age Calculator is provided for entertainment and informational purposes only. While we strive for accuracy in all calculations, we:</p>
+            <ul>
+                <li>Do not guarantee 100% accuracy for all use cases</li>
+                <li>Are not liable for decisions made based on app calculations</li>
+                <li>Recommend consulting official authorities for legal age verification</li>
+            </ul>
+
+            <h2>18. Governing Law</h2>
+            
+            <p>This Privacy Policy is governed by and construed in accordance with applicable data protection laws in your jurisdiction.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p><span class="emoji">🎂</span></p>
+        <p>© 2026 Age Calculator. All rights reserved.</p>
+        <p>Made with care for your privacy and security.</p>
+    </footer>
+</body>
 </html>
